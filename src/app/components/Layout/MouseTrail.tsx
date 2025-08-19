@@ -25,9 +25,9 @@ export default function MouseTrail() {
 
         type Point = { x: number; y: number; t: number };
         const points: Point[] = [];
-        const MAX_POINTS = 120; // hard cap on trail length
-        const LIFE_MS = 800;    // fully visible duration
-        const FADE_MS = 500;    // fade duration after life
+        const MAX_POINTS = 8;   // very short trail - only 8 points
+        const LIFE_MS = 130;    // very short visible duration
+        const FADE_MS = 130;    // very quick fade
 
         let lastMouse: { x: number; y: number } | null = null;
 
@@ -74,7 +74,7 @@ export default function MouseTrail() {
         while (points.length && now - points[0].t > LIFE_MS + FADE_MS) points.shift();
 
         if (points.length > 1) {
-            ctx.lineWidth = 2;
+                ctx.lineWidth = 3;
             ctx.lineCap = 'round';
             ctx.lineJoin = 'round';
 
@@ -85,9 +85,9 @@ export default function MouseTrail() {
                 const a = alphaFor(age);
                 if (a <= 0) continue;
 
-                ctx.strokeStyle = `rgba(148,0,211,${a})`;   // #9400D3
-                ctx.shadowColor = "rgb(148,0,211)";
-                ctx.shadowBlur = 6;
+                ctx.strokeStyle = `rgba(255,255,255,${a})`;   // White trail
+                ctx.shadowColor = "rgba(148,0,211,0.8)";       // Purple glow
+                ctx.shadowBlur = 13;
 
                 ctx.beginPath();
                 ctx.moveTo(p0.x, p0.y);

@@ -1,23 +1,17 @@
-@import "tailwindcss";
-
 /* globals.css */
 
 /* 1. CSS Variables (reusable colors, font sizes, etc.) */
 :root {
   --color-bg: #0a0a0a;
   --color-text: #ffffff;
-  --color-accent: #ff4d4d;
+  --color-accent: #780dd6;
 
   --font-size-base: 16px;
   --font-size-lg: 24px;
 }
 
-/* 2. Reset some defaults */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Import Tailwind AFTER variables but BEFORE custom styles */
+@import "tailwindcss";
 
 /* 3. Base body styles */
 body {
@@ -30,7 +24,7 @@ body {
 
 /* 4. Anchor link style */
 a {
-  color: var(--color-accent);
+  /* color: var(--color-accent); */
   text-decoration: none;
 }
 
