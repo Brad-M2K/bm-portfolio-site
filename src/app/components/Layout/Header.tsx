@@ -19,16 +19,16 @@ export default function Header() {
         <div className="crt border-b border-white/10 bg-black/70 backdrop-blur">
             <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group">
+            <Link href="/" className="flex items-center gap-2 group font-bold">
                 <span className="h-2 w-2 rounded-sm bg-[--accent] shadow-[0_0_8px_var(--accent)]" />
-                <span className="text-sm tracking-widest text-white/90 group-hover:text-white">
+                <span className="text-lg tracking-widest text-white/90 group-hover:text-white">
                 BRADDEZ<span className="text-[--accent]">.dev</span>
                 </span>
                 <span className="ml-1 h-4 w-2 animate-blink bg-white/80"></span>
             </Link>
 
             {/* Desktop nav */}
-            <ul className="hidden items-center gap-6 text-[13px] text-white/80 md:flex">
+            <ul className="hidden items-center gap-6 text-lg text-white/80 md:flex">
                 {navLinks.map(({ name, path }) => (
                 <li key={name}>
                     <Link
