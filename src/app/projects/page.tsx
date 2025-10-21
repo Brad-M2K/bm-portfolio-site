@@ -1,16 +1,13 @@
-import ProjectList from '@/app/components/Projects/ProjectList';
-import Background from '@/app/components/Projects/Background';
+import Background from "@/components/projects/Background";
+import ProjectList from "@/components/projects/ProjectList";
 
 export default function Projects() {
-    return (
-        <>
-            {/* Background - Fixed behind all content */}
-            <Background />
-            
-            {/* Main content over background */}
-            <main className="relative z-10]">
-                <ProjectList />
-            </main>
-        </>
-    )
+  return (
+    <>
+      <Background />
+      <main className="relative z-10">
+        <ProjectList />
+      </main>
+    </>
+  );
 }
