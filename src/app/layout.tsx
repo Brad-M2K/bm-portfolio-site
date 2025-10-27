@@ -62,7 +62,7 @@ export default function RootLayout({
           accentColor="#8015c7fc"
           isFixed
         />
-        <MouseTrail />
+        {/*<MouseTrail />*/}
         {children}
       </body>
     </html>
