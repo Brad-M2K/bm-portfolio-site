@@ -1,13 +1,11 @@
 
 
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import StaggeredMenu from '@/components/layout/StaggeredMenu';
 import React from "react";
 import Background from "@/components/Background";
-import GradualBlur from "@/components/GradualBlur";
 
 
 const geistSans = Geist({
