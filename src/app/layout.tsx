@@ -4,8 +4,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import MouseTrail from "@/components/layout/MouseTrail";
 import StaggeredMenu from '@/components/layout/StaggeredMenu';
+import React from "react";
+import Background from "@/components/Background";
+import GradualBlur from "@/components/GradualBlur";
 
 
 const geistSans = Geist({
@@ -26,10 +28,10 @@ export const metadata: Metadata = {
 
 
 const menuItems = [
-  { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
-  { label: 'About', ariaLabel: 'Learn about us', link: '/about' },
-  { label: 'Projects', ariaLabel: 'View my previous projects', link: '/projects' },
-  { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' }
+  { label: 'About', ariaLabel: 'Learn about us', section: 'about' },
+  { label: 'Skills', ariaLabel: 'Go to home page', section: 'skills' },
+  { label: 'Projects', ariaLabel: 'View my previous about', section: 'projects' },
+  { label: 'Background', ariaLabel: 'My previous Experience', section: 'background' }
 ];
 
 const socialItems = [
@@ -58,11 +60,13 @@ export default function RootLayout({
           menuButtonColor="#fff"
           openMenuButtonColor="#000000ff"
           changeMenuColorOnOpen
-          colors={['#6c5482ff', '#7a27ffff']}
+          colors={['#a365db', '#7e0be8']}
           accentColor="#8015c7fc"
           isFixed
         />
         {/*<MouseTrail />*/}
+        <Background/>
+
         {children}
       </body>
     </html>

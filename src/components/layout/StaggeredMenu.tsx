@@ -1,14 +1,15 @@
 'use client'
 
-import Link from "next/link";
-import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
+import { Link as ScrollLink } from "react-scroll";
+import Link from 'next/link'
+import React, {useCallback, useEffect, useLayoutEffect, useRef, useState} from 'react';
 import { gsap } from 'gsap';
 import LogoMark from "./LogoMark";
 
     export interface StaggeredMenuItem {
         label: string;
         ariaLabel: string;
-        link: string;
+        section: string;
     }
     export interface StaggeredMenuSocialItem {
         label: string;
@@ -75,7 +76,17 @@ import LogoMark from "./LogoMark";
 
     const itemEntranceTweenRef = useRef<gsap.core.Tween | null>(null);
 
-    useLayoutEffect(() => {
+    const [isDesktop, setIsDesktop] = useState(false);
+
+        useEffect(() => {
+            const checkScreen = () => setIsDesktop(window.innerWidth >= 1024); // desktop breakpoint
+            checkScreen(); // run once on mount
+            window.addEventListener("resize", checkScreen);
+            return () => window.removeEventListener("resize", checkScreen);
+        }, []);
+
+
+        useLayoutEffect(() => {
         const ctx = gsap.context(() => {
         const panel = panelRef.current;
         const preContainer = preLayersRef.current;
@@ -157,7 +168,7 @@ import LogoMark from "./LogoMark";
 
         tl.to(
             itemEls,
-            { yPercent: 0, rotate: 0, duration: 1, ease: 'power4.out', stagger: { each: 0.1, from: 'start' } },
+            { yPercent: 0, rotate: 0, duration: 1, ease: 'power4.out', stagger: !isDesktop ? 0 : { each: 0.1, from: 'start' } },
             itemsStart
         );
 
@@ -391,7 +402,11 @@ import LogoMark from "./LogoMark";
             aria-label="Main navigation header"
             >
             <div className="sm-logo flex items-center select-none pointer-events-auto" aria-label="Logo">
-                <Link href="/" className="inline-flex items-center" aria-label="Go to home">
+                <Link
+                    href="/"
+                    className="inline-flex items-center"
+                    aria-label="Go to home"
+                    onClick={handleMenuItemClick}>
                     <LogoMark className="sm-logo-img block h-8 w-auto transition-colors duration-300" />
                 </Link>
             </div>
@@ -439,33 +454,33 @@ import LogoMark from "./LogoMark";
             </header>
 
             <aside
-            id="staggered-menu-panel"
-            ref={panelRef}
-            className="staggered-menu-panel absolute top-0 right-0 h-full bg-white flex flex-col p-[6em_2em_calc(2em+var(--sm-safe-area))_2em] overflow-y-auto z-10 backdrop-blur-[12px]"
-            style={{ WebkitBackdropFilter: 'blur(12px)', touchAction: 'pan-y' }}
-            aria-hidden={!open}
+                id="staggered-menu-panel"
+                ref={panelRef}
+                className="staggered-menu-panel absolute top-0 right-0 h-full bg-white flex flex-col p-[6em_2em_calc(2em+var(--sm-safe-area))_2em] overflow-y-auto z-10 backdrop-blur-[12px]"
+                style={{ WebkitBackdropFilter: 'blur(12px)', touchAction: 'pan-y' }}
+                aria-hidden={!open}
             >
             <div className="sm-panel-inner flex-1 flex flex-col gap-5">
                 <ul
-                className="sm-panel-list list-none m-0 p-0 flex flex-col gap-2"
-                role="list"
-                data-numbering={displayItemNumbering || undefined}
+                    className="sm-panel-list list-none m-0 p-0 flex flex-col gap-2"
+                    role="list"
+                    data-numbering={displayItemNumbering || undefined}
                 >
                 {items && items.length ? (
                     items.map((it, idx) => (
                     <li className="sm-panel-itemWrap relative overflow-hidden leading-none" key={it.label + idx}>
-                        <Link
-                            className="sm-panel-item relative text-black font-semibold text-[4rem] cursor-pointer leading-none tracking-[-2px] uppercase transition-[background,color] duration-150 ease-linear inline-block no-underline pr-[1.4em]"
-                            href={it.link}
-                            aria-label={it.ariaLabel}
-                            data-index={idx + 1}
-                            prefetch={false}
+                        <ScrollLink
+                            className="sm-panel-item relative text-black font-semibold !text-[3rem] !sm:text-[3.5rem] cursor-pointer leading-none tracking-[-2px] uppercase transition-[background,color] duration-150 ease-linear inline-block no-underline pr-[1.4em]"
+                            to={it.section}
+                            smooth={isDesktop}
+                            duration={700}
                             onClick={handleMenuItemClick}
+                            spy={true}
                             >
-                            <span className="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">
+                            <span className="sm-panel-itemLabel inline-block [transform-origin:80%_100%] will-change-transform">
                                 {it.label}
                             </span>
-                        </Link>
+                        </ScrollLink>
                     </li>
                     ))
                 ) : (
@@ -488,14 +503,14 @@ import LogoMark from "./LogoMark";
                     >
                     {socialItems.map((s, i) => (
                         <li key={s.label + i} className="sm-socials-item">
-                        <a
+                        <Link
                             href={s.link}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="sm-socials-link text-[1.2rem] font-medium text-[#111] no-underline relative inline-block py-[2px] transition-[color,opacity] duration-300 ease-linear"
                         >
                             {s.label}
-                        </a>
+                        </Link>
                         </li>
                     ))}
                     </ul>
@@ -543,12 +558,18 @@ import LogoMark from "./LogoMark";
             .sm-scope .sm-socials-link { font-size: 1.2rem; font-weight: 500; color: #111; text-decoration: none; position: relative; padding: 2px 0; display: inline-block; transition: color 0.3s ease, opacity 0.3s ease; }
             .sm-scope .sm-socials-link:hover { color: var(--sm-accent, #ff0000); }
             .sm-scope .sm-panel-title { margin: 0; font-size: 1rem; font-weight: 600; color: #fff; text-transform: uppercase; }
-            .sm-scope .sm-panel-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+            .sm-scope .sm-panel-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2rem; }
             .sm-scope .sm-panel-item { position: relative; color: #000; font-weight: 600; font-size: 4rem; cursor: pointer; line-height: 1; letter-spacing: -2px; text-transform: uppercase; transition: background 0.25s, color 0.25s; display: inline-block; text-decoration: none; padding-right: 1.4em; }
             .sm-scope .sm-panel-itemLabel { display: inline-block; will-change: transform; transform-origin: 50% 100%; }
             .sm-scope .sm-panel-item:hover { color: var(--sm-accent, #ff0000); }
             .sm-scope .sm-panel-list[data-numbering] { counter-reset: smItem; }
-            .sm-scope .sm-panel-list[data-numbering] .sm-panel-item::after { counter-increment: smItem; content: counter(smItem, decimal-leading-zero); position: absolute; top: 0.1em; right: 3.2em; font-size: 18px; font-weight: 400; color: var(--sm-accent, #ff0000); letter-spacing: 0; pointer-events: none; user-select: none; opacity: var(--sm-num-opacity, 0); }
+            .sm-scope .sm-panel-list[data-numbering] .sm-panel-item::after { counter-increment: smItem; content: counter(smItem, decimal-leading-zero); position: absolute; top: 0.1em; right: 2em; font-size: 18px; font-weight: 400; color: var(--sm-accent, #ff0000); letter-spacing: 0; pointer-events: none; user-select: none; opacity: var(--sm-num-opacity, 0); }
+            @media (min-width: 641px) {
+              .sm-scope .sm-panel-list {
+                gap: 2.2rem; 
+              }
+            }
+
             @media (max-width: 1024px) {
                 .sm-scope .staggered-menu-panel,
                 .sm-scope[data-fixed] .staggered-menu-panel { width: 100%; left: 0; right: 0; }
@@ -571,8 +592,11 @@ import LogoMark from "./LogoMark";
                     margin-bottom: 0.35em;
                 }
                 .sm-scope .sm-panel-list[data-numbering] .sm-panel-item::after {
-                    right: 2.3em;
+                    right: 1.8em;
                     font-size: 16px;
+                }
+                .sm-scope .sm-panel-list {
+                margin-top: 2em;
                 }
             }
         `}</style>
