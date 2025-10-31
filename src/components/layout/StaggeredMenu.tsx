@@ -2,7 +2,7 @@
 
 import { Link as ScrollLink } from "react-scroll";
 import Link from 'next/link'
-import React, {useCallback, useEffect, useLayoutEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState} from 'react';
 import { gsap } from 'gsap';
 import LogoMark from "./LogoMark";
 
@@ -78,42 +78,42 @@ import LogoMark from "./LogoMark";
 
     const [isDesktop, setIsDesktop] = useState(false);
 
-        useEffect(() => {
-            const checkScreen = () => setIsDesktop(window.innerWidth >= 1024); // desktop breakpoint
-            checkScreen(); // run once on mount
-            window.addEventListener("resize", checkScreen);
-            return () => window.removeEventListener("resize", checkScreen);
-        }, []);
+    useEffect(() => {
+        const checkScreen = () => setIsDesktop(window.innerWidth >= 1024); // desktop breakpoint
+        checkScreen(); // run once on mount
+        window.addEventListener("resize", checkScreen);
+        return () => window.removeEventListener("resize", checkScreen);
+    }, []);
 
 
-        useLayoutEffect(() => {
+    useLayoutEffect(() => {
         const ctx = gsap.context(() => {
-        const panel = panelRef.current;
-        const preContainer = preLayersRef.current;
+            const panel = panelRef.current;
+            const preContainer = preLayersRef.current;
 
-        const plusH = plusHRef.current;
-        const plusV = plusVRef.current;
-        const icon = iconRef.current;
-        const textInner = textInnerRef.current;
+            const plusH = plusHRef.current;
+            const plusV = plusVRef.current;
+            const icon = iconRef.current;
+            const textInner = textInnerRef.current;
 
-        if (!panel || !plusH || !plusV || !icon || !textInner) return;
+            if (!panel || !plusH || !plusV || !icon || !textInner) return;
 
-        let preLayers: HTMLElement[] = [];
-        if (preContainer) {
-            preLayers = Array.from(preContainer.querySelectorAll('.sm-prelayer')) as HTMLElement[];
-        }
-        preLayerElsRef.current = preLayers;
+            let preLayers: HTMLElement[] = [];
+            if (preContainer) {
+                preLayers = Array.from(preContainer.querySelectorAll('.sm-prelayer')) as HTMLElement[];
+            }
+            preLayerElsRef.current = preLayers;
 
-        const offscreen = position === 'left' ? -100 : 100;
-        gsap.set([panel, ...preLayers], { xPercent: offscreen });
+            const offscreen = position === 'left' ? -100 : 100;
+            gsap.set([panel, ...preLayers], { xPercent: offscreen });
 
-        gsap.set(plusH, { transformOrigin: '50% 50%', rotate: 0 });
-        gsap.set(plusV, { transformOrigin: '50% 50%', rotate: 90 });
-        gsap.set(icon, { rotate: 0, transformOrigin: '50% 50%' });
+            gsap.set(plusH, { transformOrigin: '50% 50%', rotate: 0 });
+            gsap.set(plusV, { transformOrigin: '50% 50%', rotate: 90 });
+            gsap.set(icon, { rotate: 0, transformOrigin: '50% 50%' });
 
-        gsap.set(textInner, { yPercent: 0 });
+            gsap.set(textInner, { yPercent: 0 });
 
-        if (toggleBtnRef.current) gsap.set(toggleBtnRef.current, { color: menuButtonColor });
+            if (toggleBtnRef.current) gsap.set(toggleBtnRef.current, { color: menuButtonColor });
         });
         return () => ctx.revert();
     }, [menuButtonColor, position]);
@@ -364,9 +364,16 @@ import LogoMark from "./LogoMark";
         toggleMenu();
     }, [toggleMenu]);
 
+    const scopeClassName = useMemo(() => {
+        if (!isFixed) return 'w-full h-full';
+        return open
+            ? 'fixed inset-0 w-screen h-screen pointer-events-auto'
+            : 'fixed inset-x-0 top-0 h-[6rem] pointer-events-auto';
+    }, [isFixed, open]);
+
     return (
         <div
-        className={`sm-scope z-40 ${isFixed ? 'fixed inset-0 w-screen h-screen' : 'w-full h-full'}`}
+        className={`sm-scope z-40 ${scopeClassName}`}
         data-fixed={isFixed || undefined}
         >
         <div

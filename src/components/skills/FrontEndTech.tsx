@@ -11,6 +11,7 @@ import {
   SiTailwindcss,
   SiShadcnui
 } from 'react-icons/si';
+import {useEffect, useState} from "react";
 
 const frontEndLogos = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
@@ -24,17 +25,30 @@ const frontEndLogos = [
 ];
 
 const FrontEndTech: React.FC = () => {
+
+    const [isDesktop, setIsDesktop] = useState(false);
+
+    useEffect(() => {
+        const checkScreen = () => setIsDesktop(window.innerWidth >= 1024); // desktop breakpoint
+        checkScreen(); // run once on mount
+        window.addEventListener("resize", checkScreen);
+        return () => window.removeEventListener("resize", checkScreen);
+    }, []);
+
   return (
     <section className="flex w-full flex-col items-center gap-4 text-white">
-      <h3 className="text-xl font-bold">Front End</h3>
       <LogoLoop
         logos={frontEndLogos}
         direction="right"
         speed={30}
-        logoHeight={36}
+        logoHeight={isDesktop ? 56 : 36}
         gap={40}
         ariaLabel="Front end technologies"
       />
+      <p className=" text-left text-lg md:text-2xl md:pl-10 text-balance text-gray-300 ">
+        My front-end stack leans on React and Next.js for structure, TypeScript for rock-solid typing,
+        and Tailwind with shadcn/ui to move quickly while keeping components consistent.
+      </p>
     </section>
   );
 };

@@ -7,46 +7,12 @@ import {Skills} from "@/components/skills/Skills";
 export default function Home() {
   return (
     <main className="min-h-screen w-full  relative overflow-hidden">
-        <section style={{position: 'relative',height: 500,overflow: 'hidden'}}>
-            <div style={{ height: '100%',overflowY: 'auto',padding: '6rem 2rem' }}>
-            </div>
-            <GradualBlur
-                target="page"
-                position="top"
-                height="5rem"
-                strength={3}
-                divCount={10}
-                curve="bezier"
-                exponential={true}
-                opacity={1}
-                zIndex={-90}
-                responsive={true}
-            />
-        </section>
-        <section style={{position: 'relative',height: 500,overflow: 'hidden'}}>
-            <div style={{ height: '100%',overflowY: 'auto',padding: '6rem 2rem' }}>
-            </div>
-            <GradualBlur
-                target="page"
-                position="bottom"
-                height="5rem"
-                strength={3}
-                divCount={10}
-                curve="bezier"
-                exponential={true}
-                opacity={1}
-                zIndex={-90}
-                responsive={true}
 
-            />
-        </section>
-
-
-        <section id="about" className="min-h-screen flex items-center justify-center  text-white">
+        <section id="about" className="min-h-screen   text-white">
             <About/>
         </section>
 
-        <section id="skills" className="min-h-screen  text-white pt-30">
+        <section id="skills" className="min-h-screen  text-white pt-20">
            <Skills/>
         </section>
 
@@ -90,7 +56,40 @@ export default function Home() {
             </div>
         </section>
 
+        <section style={{position: 'relative',height: 500,overflow: 'hidden'}}>
+            <div style={{ height: '100%',overflowY: 'auto',padding: '6rem 2rem' }}>
+            </div>
+            <GradualBlur
+                target="page"
+                position="top"
+                height="5rem"
+                strength={3}
+                divCount={10}
+                curve="bezier"
+                exponential={true}
+                opacity={1}
+                zIndex={-90}
+                responsive={true}
+            />
+        </section>
+        <section style={{position: 'relative',height: 500,overflow: 'hidden'}}>
+            <div style={{ height: '100%',overflowY: 'auto',padding: '6rem 2rem' }}>
+            </div>
+            <GradualBlur
+                target="page"
+                position="bottom"
+                height="5rem"
+                strength={3}
+                divCount={10}
+                curve="bezier"
+                exponential={true}
+                opacity={1}
+                zIndex={-90}
+                responsive={true}
 
+            />
+        </section>
+        <footer className="flex w-full flex-col items-center justify-center gap-4 py-50 text-white">hi</footer>
     </main>
   );
 }
