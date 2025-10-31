@@ -178,3 +178,25 @@ a:hover {
     @apply bg-background text-foreground;
   }
 }
+
+
+.glow {
+    background: linear-gradient(90deg, #38bdf8, #a78bfa, #38bdf8);
+    background-size: 200% 200%;
+    animation: shimmer 4s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent !important;
+}
+
+.profile-glow {
+    box-shadow: 0 0 60px #a78bfa33, 0 0 700px #38bdf822;
+}
+
+
+
+
+
+@keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}

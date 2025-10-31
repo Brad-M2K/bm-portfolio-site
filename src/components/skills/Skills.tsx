@@ -13,9 +13,9 @@ export const Skills = () => {
             collapsible
             className=' w-full  rounded-3xl border border-transparent backdrop-blur-xl shadow-lg  md:px-8 md:py-8  py-8'
         >
-            <h1 className='md:text-6xl text-4xl font-bold  text-shadow-3xs text-center pb-8'>My Evolving Skillset</h1>
+            <h1 className='md:text-6xl text-4xl font-bold  text-shadow-3xs text-center pb-8 '>My <span className="glow">Evolving Skillset</span></h1>
             <AccordionItem value="item-1" className='bg-gray-400/30 p-4 rounded-3xl'>
-                <AccordionTrigger className="text-2xl md:text-3xl font-bold cursor-pointer">
+                <AccordionTrigger className="text-2xl md:text-3xl font-bold cursor-pointer ">
                     Front End
                 </AccordionTrigger>
                 <AccordionContent className="flex flex-col gap-4 text-balance">
@@ -28,7 +28,7 @@ export const Skills = () => {
                     <BackEndTech />
                 </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-3 " className='bg-gray-600/30 p-4 rounded-3xl'>
+            <AccordionItem value="item-3 " className='bg-gray-600/30 p-4 rounded-3xl '>
                 <AccordionTrigger className="text-2xl md:text-3xl font-bold cursor-pointer">Dev Tools</AccordionTrigger>
                 <AccordionContent className="flex flex-col gap-4 text-balance">
                     <DevToolsTech />

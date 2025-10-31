@@ -415,6 +415,7 @@ import LogoMark from "./LogoMark";
                     aria-label="Go to home"
                     onClick={handleMenuItemClick}>
                     <LogoMark className="sm-logo-img block h-8 w-auto transition-colors duration-300" />
+                    <p className='font-bold md:text-4xl text-2xl text-purple-500  pl-3 animate-caret-blink'>|</p>
                 </Link>
             </div>
 

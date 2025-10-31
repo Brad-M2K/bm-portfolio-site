@@ -24,6 +24,7 @@ const BackEndTech: React.FC = () => {
 
   return (
     <section className="flex w-full flex-col items-center gap-4 text-white">
+
       <LogoLoop
         logos={backEndLogos}
         speed={30}
