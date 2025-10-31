@@ -1,12 +1,5 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "@/*": ["./*"]
-        }
-    }
-};
+const nextConfig: NextConfig = {};
 
 export default nextConfig;
