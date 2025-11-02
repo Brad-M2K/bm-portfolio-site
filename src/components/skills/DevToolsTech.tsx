@@ -37,8 +37,7 @@ const DevToolsTech: React.FC = () => {
         ariaLabel="Developer tools"
       />
       <p className="text-left text-lg md:text-2xl md:pl-10 text-balance text-gray-300 ">
-        GitHub keeps everything versioned, Vercel ships it fast, and I round things out with Jest,
-        WebStorm, Docker, Figma, and n8n to cover testing, automation, and product polish.
+          I manage code through GitHub and deploy mainly on Vercel. I write tests with Jest for backend and API work, design small touches in Figma, and like trying out new tools — recently WebStorm, sometimes n8n for automation experiments.
       </p>
     </section>
   );

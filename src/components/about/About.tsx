@@ -9,7 +9,7 @@ export const About = () => {
           <motion.section
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 1.2, delay: 0.2 }}
           >
 
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-10 md:gap-12">

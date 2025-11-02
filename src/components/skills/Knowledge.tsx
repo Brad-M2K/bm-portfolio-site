@@ -33,8 +33,7 @@ const Knowledge: React.FC = () => {
         ariaLabel="AI and knowledge tools"
       />
       <p className="text-left text-lg md:text-2xl md:pl-10 text-balance  text-gray-300 ">
-        I keep my edge sharp by pairing AI assistants with trusted documentation—ChatGPT and Perplexity
-        for fast ideation, Stack Overflow for real-world fixes, and MDN for the canonical web specs.
+          I use ChatGPT, Codex, and Perplexity alongside docs like MDN to spike ideas, clarify syntax, and rubber-duck through tricky problems. I dip into Stack Overflow now and then, but AI’s become part of how I think and learn — with the good old canonical docs always there when needed.
       </p>
     </section>
   );

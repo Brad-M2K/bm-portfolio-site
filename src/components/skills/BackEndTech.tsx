@@ -34,8 +34,7 @@ const BackEndTech: React.FC = () => {
         ariaLabel="Back end technologies"
       />
       <p className="text-left text-lg md:text-2xl md:pl-10 text-balance text-gray-300">
-        On the server side I lean on Node.js with Prisma for data access, Supabase for auth and storage,
-        and PostgreSQL when I need a reliable relational backbone.
+          On the server side I lean on Node.js with Prisma for data access, Supabase for auth and storage, and PostgreSQL as a solid, reliable base — with some experience building APIs in Express and raw SQL too.
       </p>
     </section>
   );

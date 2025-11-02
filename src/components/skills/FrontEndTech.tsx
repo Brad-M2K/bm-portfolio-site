@@ -13,6 +13,7 @@ import {
 } from 'react-icons/si';
 import {useEffect, useState} from "react";
 
+
 const frontEndLogos = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
   { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
@@ -45,9 +46,8 @@ const FrontEndTech: React.FC = () => {
         gap={40}
         ariaLabel="Front end technologies"
       />
-      <p className=" text-left text-lg md:text-2xl md:pl-10 text-balance text-gray-300 ">
-        My front-end stack leans on React and Next.js for structure, TypeScript for rock-solid typing,
-        and Tailwind with shadcn/ui to move quickly while keeping components consistent.
+      <p className=" text-left text-lg md:text-2xl md:pl-10  text-balance text-gray-300">
+          I build clean, responsive interfaces with React, Next.js, and Tailwind, using TypeScript as I grow more fluent — among other bits in my stack.
       </p>
     </section>
   );
