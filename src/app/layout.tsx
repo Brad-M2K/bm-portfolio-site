@@ -1,12 +1,10 @@
-
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import StaggeredMenu from '@/components/layout/StaggeredMenu';
+import StaggeredMenu from "@/components/layout/StaggeredMenu";
 import React from "react";
-import Background from "@/components/Background";
-
+import Background from "@/components/page/Background";
+// import MouseTrail from "@/components/layout/MouseTrail";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,21 +21,26 @@ export const metadata: Metadata = {
   description: "A showcase of my work and skills as a developer.",
 };
 
-
-
 const menuItems = [
-  { label: 'About', ariaLabel: 'Learn about us', section: 'about' },
-  { label: 'Skills', ariaLabel: 'Go to home page', section: 'skills' },
-  { label: 'Projects', ariaLabel: 'View my previous about', section: 'projects' },
-  { label: 'Background', ariaLabel: 'My previous Experience', section: 'background' }
+  { label: "About", ariaLabel: "Learn about us", section: "about" },
+  { label: "Skills", ariaLabel: "Go to home page", section: "skills" },
+  {
+    label: "Projects",
+    ariaLabel: "View my previous about",
+    section: "projects",
+  },
+  {
+    label: "Background",
+    ariaLabel: "My previous Experience",
+    section: "background",
+  },
 ];
 
 const socialItems = [
-  { label: 'Twitter', link: 'https://twitter.com' },
-  { label: 'GitHub', link: 'https://github.com/Brad-M2K' },
-  { label: 'LinkedIn', link: 'https://linkedin.com/in/brad-m2k' }
+  { label: "Twitter", link: "https://twitter.com" },
+  { label: "GitHub", link: "https://github.com/Brad-M2K" },
+  { label: "LinkedIn", link: "https://linkedin.com/in/brad-m2k" },
 ];
-
 
 export default function RootLayout({
   children,
@@ -58,12 +61,12 @@ export default function RootLayout({
           menuButtonColor="#fff"
           openMenuButtonColor="#000000ff"
           changeMenuColorOnOpen
-          colors={['#a365db', '#7e0be8']}
+          colors={["#a365db", "#7e0be8"]}
           accentColor="#8015c7fc"
           isFixed
         />
         {/*<MouseTrail />*/}
-        <Background/>
+        <Background />
 
         {children}
       </body>

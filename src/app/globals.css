@@ -10,33 +10,33 @@
   --foreground: oklch(0.97 0.02 260);
 
   /* Glass surfaces */
-  --card: oklch(0.20 0.03 260 / 0.55);
+  --card: oklch(0.2 0.03 260 / 0.55);
   --card-foreground: var(--foreground);
-  --popover: oklch(0.20 0.03 260 / 0.50);
+  --popover: oklch(0.2 0.03 260 / 0.5);
   --popover-foreground: var(--foreground);
 
   /* Accents */
   --primary: var(--brand);
   --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.30 0.03 260 / 0.6);
+  --secondary: oklch(0.3 0.03 260 / 0.6);
   --secondary-foreground: var(--foreground);
   --muted: oklch(0.28 0.02 260 / 0.5);
   --muted-foreground: oklch(0.75 0.03 260);
 
   /* Chrome */
   --border: oklch(1 0 0 / 0.12);
-  --input:  oklch(1 0 0 / 0.16);
-  --ring:   oklch(0.65 0.20 300);
+  --input: oklch(1 0 0 / 0.16);
+  --ring: oklch(0.65 0.2 300);
 
   /* Charts (coherent palette) */
-  --chart-1: oklch(0.70 0.20 300);
+  --chart-1: oklch(0.7 0.2 300);
   --chart-2: oklch(0.64 0.12 185);
   --chart-3: oklch(0.55 0.18 30);
-  --chart-4: oklch(0.78 0.20 100);
-  --chart-5: oklch(0.70 0.20 40);
+  --chart-4: oklch(0.78 0.2 100);
+  --chart-5: oklch(0.7 0.2 40);
 
   /* Sidebar (glass) */
-  --sidebar: oklch(0.20 0.03 260 / 0.55);
+  --sidebar: oklch(0.2 0.03 260 / 0.55);
   --sidebar-foreground: var(--foreground);
   --sidebar-primary: var(--primary);
   --sidebar-primary-foreground: var(--primary-foreground);
@@ -136,29 +136,29 @@ a:hover {
   --background: oklch(0.18 0.03 260);
   --foreground: oklch(0.97 0.02 260);
 
-  --card: oklch(0.20 0.03 260 / 0.55);
+  --card: oklch(0.2 0.03 260 / 0.55);
   --card-foreground: var(--foreground);
-  --popover: oklch(0.20 0.03 260 / 0.50);
+  --popover: oklch(0.2 0.03 260 / 0.5);
   --popover-foreground: var(--foreground);
 
   --primary: var(--brand);
   --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.30 0.03 260 / 0.6);
+  --secondary: oklch(0.3 0.03 260 / 0.6);
   --secondary-foreground: var(--foreground);
   --muted: oklch(0.28 0.02 260 / 0.5);
   --muted-foreground: oklch(0.75 0.03 260);
 
   --border: oklch(1 0 0 / 0.12);
-  --input:  oklch(1 0 0 / 0.16);
-  --ring:   oklch(0.65 0.20 300);
+  --input: oklch(1 0 0 / 0.16);
+  --ring: oklch(0.65 0.2 300);
 
-  --chart-1: oklch(0.70 0.20 300);
+  --chart-1: oklch(0.7 0.2 300);
   --chart-2: oklch(0.64 0.12 185);
   --chart-3: oklch(0.55 0.18 30);
-  --chart-4: oklch(0.78 0.20 100);
-  --chart-5: oklch(0.70 0.20 40);
+  --chart-4: oklch(0.78 0.2 100);
+  --chart-5: oklch(0.7 0.2 40);
 
-  --sidebar: oklch(0.20 0.03 260 / 0.55);
+  --sidebar: oklch(0.2 0.03 260 / 0.55);
   --sidebar-foreground: var(--foreground);
   --sidebar-primary: var(--primary);
   --sidebar-primary-foreground: var(--primary-foreground);
@@ -180,24 +180,83 @@ a:hover {
   }
 }
 
-
 .glow {
-    background: linear-gradient(90deg, #38bdf8, #a78bfa, #38bdf8);
-    background-size: 200% 200%;
-    animation: shimmer 4s ease infinite;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent !important;
+  background: linear-gradient(90deg, #38bdf8, #a78bfa, #38bdf8);
+  background-size: 200% 200%;
+  animation: shimmer 4s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent !important;
 }
 
 .profile-glow {
-    box-shadow: 0 0 60px #a78bfa33, 0 0 700px #38bdf822;
+  box-shadow: 0 0 30px violet, 0 0 70px blue;
 }
 
+.profile-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+}
 
+.profile-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -6px; /* ring thickness outside the image */
+  border-radius: 50%;
+  border: 6px solid transparent;
 
+  /* two backgrounds: inner cover + spinning conic ring */
+  background: linear-gradient(
+        var(--color-bg, #0b0b0f),
+        var(--color-bg, #0b0b0f)
+      )
+      padding-box,
+    conic-gradient(from 0deg, violet, blue, violet, transparent 70%) border-box;
 
+  background-origin: border-box, border-box;
+  background-clip: padding-box, border-box;
+
+  animation: spin 3s linear infinite;
+  pointer-events: none;
+}
+
+.profile-img {
+  display: block;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  box-shadow: 0 0 30px violet, 0 0 70px blue; /* your existing glow */
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-gradient-to-br {
+  background-size: 200% 200%;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 @keyframes shimmer {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }

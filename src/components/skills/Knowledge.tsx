@@ -1,26 +1,42 @@
-'use client'
+"use client";
 
 import LogoLoop from "@/components/skills/LogoLoop";
-import { SiOpenai, SiPerplexity, SiStackoverflow, SiMdnwebdocs,  } from 'react-icons/si';
-import {useEffect, useState} from "react";
+import {
+  SiOpenai,
+  SiPerplexity,
+  SiStackoverflow,
+  SiMdnwebdocs,
+} from "react-icons/si";
+import { useEffect, useState } from "react";
 
 const knowledgeLogos = [
   { node: <SiOpenai />, title: "ChatGPT", href: "https://chat.openai.com" },
-  { node: <SiPerplexity />, title: "Perplexity", href: "https://perplexity.ai" },
-  { node: <SiStackoverflow />, title: "Stack Overflow", href: "https://stackoverflow.com" },
-  { node: <SiMdnwebdocs />, title: "MDN Web Docs", href: "https://developer.mozilla.org" },
+  {
+    node: <SiPerplexity />,
+    title: "Perplexity",
+    href: "https://perplexity.ai",
+  },
+  {
+    node: <SiStackoverflow />,
+    title: "Stack Overflow",
+    href: "https://stackoverflow.com",
+  },
+  {
+    node: <SiMdnwebdocs />,
+    title: "MDN Web Docs",
+    href: "https://developer.mozilla.org",
+  },
 ];
 
 const Knowledge: React.FC = () => {
+  const [isDesktop, setIsDesktop] = useState(false);
 
-    const [isDesktop, setIsDesktop] = useState(false);
-
-    useEffect(() => {
-        const checkScreen = () => setIsDesktop(window.innerWidth >= 1024); // desktop breakpoint
-        checkScreen(); // run once on mount
-        window.addEventListener("resize", checkScreen);
-        return () => window.removeEventListener("resize", checkScreen);
-    }, []);
+  useEffect(() => {
+    const checkScreen = () => setIsDesktop(window.innerWidth >= 1024); // desktop breakpoint
+    checkScreen(); // run once on mount
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
 
   return (
     <section className="flex w-full flex-col items-center gap-4 text-white">
@@ -33,7 +49,10 @@ const Knowledge: React.FC = () => {
         ariaLabel="AI and knowledge tools"
       />
       <p className="text-left text-lg md:text-2xl md:pl-10 text-balance  text-gray-300 ">
-          I use ChatGPT, Codex, and Perplexity alongside docs like MDN to spike ideas, clarify syntax, and rubber-duck through tricky problems. I dip into Stack Overflow now and then, but AI’s become part of how I think and learn — with the good old canonical docs always there when needed.
+        I use ChatGPT, Codex, and Perplexity alongside docs like MDN to spike
+        ideas, clarify syntax, and rubber-duck through tricky problems. I dip
+        into Stack Overflow now and then, but AI’s become part of how I think
+        and learn — with the good old canonical docs always there when needed.
       </p>
     </section>
   );
