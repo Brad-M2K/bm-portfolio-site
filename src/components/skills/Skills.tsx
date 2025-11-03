@@ -16,14 +16,16 @@ export const Skills = () => {
       <Accordion
         type="single"
         collapsible
-        className=" w-full  rounded-3xl border border-white/30 bg-[linear-gradient(to_bottom,_black_0%,_black_30%,_#6d28d9_50%,_#9333ea_70%,_#3b82f6_85%,_#a855f7_100%)] shadow-lg  md:px-8 md:py-8 px-4 py-8 max-w-90 md:max-w-5xl"
+        className=" w-full  rounded-3xl border border-white/30 bg-gradient-to-b from-black/30 via-fuchsia-500/40 to-sky-500/50 
+
+        shadow-lg  md:px-8 md:py-8 px-4 py-8 max-w-90 md:max-w-5xl"
       >
         <h1 className="md:text-6xl text-4xl font-bold  text-shadow-3xs text-center pb-8 ">
           My <span className="glow">Evolving Skillset</span>
         </h1>
         <AccordionItem
           value="item-1"
-          className="bg-violet-600/50 p-4 rounded-3xl border-b-white/50"
+          className="bg-violet-600/30 p-4 rounded-3xl border-b-white/50"
         >
           <AccordionTrigger className=" pl-5 md:pl-20 text-2xl md:text-3xl font-bold cursor-pointer ">
             Front End
@@ -34,7 +36,7 @@ export const Skills = () => {
         </AccordionItem>
         <AccordionItem
           value="item-2"
-          className="bg-violet-700/50 p-4 rounded-3xl border-b-white/50"
+          className="bg-violet-700/30 p-4 rounded-3xl border-b-white/50"
         >
           <AccordionTrigger className="pl-5 md:pl-20 text-2xl md:text-3xl font-bold cursor-pointer">
             Backend
@@ -45,7 +47,7 @@ export const Skills = () => {
         </AccordionItem>
         <AccordionItem
           value="item-3 "
-          className="bg-violet-800/50 p-4 rounded-3xl border-b-white/50"
+          className="bg-violet-800/30 p-4 rounded-3xl border-b-white/50"
         >
           <AccordionTrigger className=" pl-5 md:pl-20 text-2xl md:text-3xl font-bold cursor-pointer">
             Dev Tools
@@ -56,7 +58,7 @@ export const Skills = () => {
         </AccordionItem>
         <AccordionItem
           value="item-4"
-          className="bg-violet-900/60 p-4 rounded-3xl border-b-white/50"
+          className="bg-violet-900/40 p-4 rounded-3xl border-b-white/50"
         >
           <AccordionTrigger className="pl-5 md:pl-20 text-2xl md:text-3xl font-bold cursor-pointer">
             Fountain of Knowledge
@@ -67,7 +69,7 @@ export const Skills = () => {
         </AccordionItem>
         <AccordionItem
           value="item-5"
-          className="bg-violet-950/70 p-4 rounded-3xl border-b-white/50"
+          className="bg-violet-950/40 p-4 rounded-3xl border-b-white/50"
         >
           <AccordionTrigger className="pl-5 md:pl-20 text-2xl md:text-3xl font-bold cursor-pointer">
             Beyond the Code

@@ -74,7 +74,7 @@ export default function Home() {
           responsive={true}
         />
       </section>
-      <section
+      {/* <section
         style={{ position: "relative", height: 500, overflow: "hidden" }}
       >
         <div
@@ -92,7 +92,7 @@ export default function Home() {
           zIndex={-90}
           responsive={true}
         />
-      </section>
+      </section> */}
       <footer className="h-70 bg-gradient-to-br from-purple-500 via-blue-500 to-pink-500 bg-[length:200%_200%] animate-gradient blur-3xl rounded-t-3xl" />
     </main>
   );

@@ -16,12 +16,27 @@ export const About = () => {
             <h2 className=" text-center text-3xl font-bold md:text-left md:text-4xl lg:text-5xl">
               <span className="glow ">About</span> Me
             </h2>
-            <div
-              aria-label="Bradley Mattison profile photo"
-              className="flex overflow-hidden object-cover h-40 w-40 mx-auto p-[4px] bg-gradient-to-br from-violet-500/60 to-blue-500/60 rounded-full border-6 border-white/20 shadow-xl transition-transform relative shrink-0 hover:scale-110 hover:rotate-360 duration-300 profile-glow md:mx-0 lg:h-48 lg:w-48"
+            <motion.div
+              initial={{
+                x: "120vw",
+                y: "-40vh",
+                scale: 0.2,
+                rotate: -35,
+                opacity: 0,
+              }}
+              animate={{ x: 0, y: 0, scale: 1, rotate: 0, opacity: 1 }}
+              transition={{
+                duration: 1.6,
+                ease: [0.16, 1, 0.3, 1],
+                delay: 0.3,
+              }}
+              className="relative mx-auto shrink-0 md:mx-0"
             >
-              <Image src="/me.png" alt="Bradley Mattison" fill />
-            </div>
+              <span className="pointer-events-none absolute -inset-8 blur-2xl opacity-60 bg-gradient-to-r from-sky-400/40 via-purple-500/40 to-pink-500/40 rounded-full" />
+              <div className="relative flex h-40 w-40 overflow-hidden rounded-full bg-gradient-to-br from-violet-500/60 to-blue-500/60 p-[4px] shadow-xl lg:h-48 lg:w-48">
+                <Image src="/me.png" alt="Bradley Mattison" fill priority />
+              </div>
+            </motion.div>
           </div>
 
           <div className=" flex flex-col max-w-xl p-6 text-base text-gray-300 bg-gradient-to-b from-black/30 via-black/10 to-transparent rounded-2xl gap-4 md:text-lg">
