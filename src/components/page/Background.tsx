@@ -1,4 +1,10 @@
-export default function Background() {
+import type { ReactNode } from "react";
+
+interface BackgroundProps {
+  children?: ReactNode;
+}
+
+export default function Background({ children }: BackgroundProps) {
   return (
     <div className="fixed inset-0 -z-10 w-screen h-screen">
       {/* base gradient */}
@@ -8,7 +14,10 @@ export default function Background() {
       <div className="absolute inset-0 bg-[radial-gradient(#ffffff11_3px,transparent_1px)] bg-[size:40px_40px]" />
 
       {/* vignette overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent" />
+      {children ? (
+        <div className="absolute inset-0">{children}</div>
+      ) : null}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent pointer-events-none" />
     </div>
   );
 }

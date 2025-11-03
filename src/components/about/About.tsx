@@ -14,7 +14,7 @@ export const About = () => {
         <div className="flex flex-col w-full max-w-5xl mx-auto gap-10 md:gap-12">
           <div className=" flex flex-row items-center gap-6 md:items-center md:justify-between">
             <h2 className=" text-center text-3xl font-bold md:text-left md:text-4xl lg:text-5xl">
-              <span className="glow">About</span> Me
+              <span className="glow ">About</span> Me
             </h2>
             <div
               aria-label="Bradley Mattison profile photo"

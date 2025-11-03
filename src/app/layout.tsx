@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import StaggeredMenu from "@/components/layout/StaggeredMenu";
 import React from "react";
-import Background from "@/components/page/Background";
+import DesktopOrMobileBackground from "@/components/page/DesktopOrMobileBackground";
 // import MouseTrail from "@/components/layout/MouseTrail";
 
 const geistSans = Geist({
@@ -66,8 +66,7 @@ export default function RootLayout({
           isFixed
         />
         {/*<MouseTrail />*/}
-        <Background />
-
+        <DesktopOrMobileBackground />
         {children}
       </body>
     </html>
