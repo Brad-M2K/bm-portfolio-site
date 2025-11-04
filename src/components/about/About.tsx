@@ -1,15 +1,32 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
+
+const containerVariants: Variants = {
+  hidden: {
+    y: "-120%",
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 55,
+      damping: 22,
+      delay: 0.6,
+    },
+  },
+};
 
 export const About = () => {
   return (
     <section className=" grid w-full min-h-[80ch] max-w-2xl px-8 py-24 mx-auto text-white bg-black/30 rounded-2xl place-items-center backdrop-blur-sm">
       <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, delay: 0.2 }}
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
       >
         <div className="flex flex-col w-full max-w-5xl mx-auto gap-10 md:gap-12">
           <div className=" flex flex-row items-center gap-6 md:items-center md:justify-between">
@@ -28,7 +45,7 @@ export const About = () => {
               transition={{
                 duration: 1.6,
                 ease: [0.16, 1, 0.3, 1],
-                delay: 0.3,
+                delay: 1,
               }}
               className="relative mx-auto shrink-0 md:mx-0"
             >
