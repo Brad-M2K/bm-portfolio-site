@@ -42,9 +42,21 @@ export default function DesktopOrMobileBackground() {
       particleBaseSize={30}
       moveParticlesOnHover={isActive}
       alphaParticles={false}
-      disableRotation={!isActive}
+      disableRotation={true}
     />
   ) : (
-    <Background />
+    <Particles
+      className="fixed inset-0 -z-10 pointer-events-none"
+      backgroundColor="#000000"
+      particleColors={["#ffffff", "#d1e6ff", "#ffd3a5", "#b3a7ff", "#79fff7"]}
+      particleCount={particleCount}
+      particleSpread={6}
+      particleHoverFactor={0}
+      speed={0.1}
+      particleBaseSize={30}
+      moveParticlesOnHover={isActive}
+      alphaParticles={false}
+      disableRotation={true}
+    />
   );
 }

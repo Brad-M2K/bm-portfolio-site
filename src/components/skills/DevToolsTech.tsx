@@ -11,6 +11,7 @@ import {
   SiN8N,
 } from "react-icons/si";
 import { useEffect, useState } from "react";
+import { BiLogoVisualStudio } from "react-icons/bi";
 
 const devToolsLogos = [
   { node: <SiJest />, title: "Jest", href: "https://jestjs.io" },
@@ -20,6 +21,11 @@ const devToolsLogos = [
     node: <SiWebstorm />,
     title: "WebStorm",
     href: "https://www.jetbrains.com/webstorm",
+  },
+  {
+    node: <BiLogoVisualStudio />,
+    title: "VS Code",
+    href: "https://code.visualstudio.com",
   },
   { node: <SiFigma />, title: "Figma", href: "https://www.figma.com" },
   { node: <SiDocker />, title: "Docker", href: "https://www.docker.com" },

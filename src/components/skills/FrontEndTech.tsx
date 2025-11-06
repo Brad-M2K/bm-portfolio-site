@@ -11,6 +11,7 @@ import {
   SiTailwindcss,
   SiShadcnui,
 } from "react-icons/si";
+import { TbBrandFramerMotion } from "react-icons/tb";
 import { useEffect, useState } from "react";
 
 const frontEndLogos = [
@@ -38,6 +39,7 @@ const frontEndLogos = [
     href: "https://tailwindcss.com",
   },
   { node: <SiShadcnui />, title: "Shadcn UI", href: "https://ui.shadcn.com" },
+  { node: <TbBrandFramerMotion />, title: "Framer Motion", href: "https://www.framer.com/motion/" },
 ];
 
 const FrontEndTech: React.FC = () => {

@@ -14,7 +14,7 @@ const containerVariants: Variants = {
     transition: {
       type: "spring",
       stiffness: 55,
-      damping: 22,
+      damping: 15,
       delay: 0.6,
     },
   },
@@ -22,12 +22,12 @@ const containerVariants: Variants = {
 
 export const About = () => {
   return (
-    <section className=" grid w-full min-h-[80ch] max-w-2xl px-8 py-24 mx-auto text-white bg-black/30 rounded-2xl place-items-center backdrop-blur-sm">
-      <motion.section
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
-      >
+    <motion.section
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      <section className=" grid w-full min-h-[80ch] max-w-2xl px-8 py-24 mx-auto text-white bg-black/30 rounded-2xl place-items-center backdrop-blur-sm">
         <div className="flex flex-col w-full max-w-5xl mx-auto gap-10 md:gap-12">
           <div className=" flex flex-row items-center gap-6 md:items-center md:justify-between">
             <h2 className=" text-center text-3xl font-bold md:text-left md:text-4xl lg:text-5xl">
@@ -45,7 +45,7 @@ export const About = () => {
               transition={{
                 duration: 1.6,
                 ease: [0.16, 1, 0.3, 1],
-                delay: 1,
+                delay: 1.2,
               }}
               className="relative mx-auto shrink-0 md:mx-0"
             >
@@ -85,7 +85,7 @@ export const About = () => {
             </p>
           </div>
         </div>
-      </motion.section>
-    </section>
+      </section>
+    </motion.section>
   );
 };
