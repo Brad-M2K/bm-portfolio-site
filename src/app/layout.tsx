@@ -4,7 +4,6 @@ import "./globals.css";
 import StaggeredMenu from "@/components/layout/StaggeredMenu";
 import React from "react";
 import DesktopOrMobileBackground from "@/components/layout/DesktopOrMobileBackground";
-import { FloatingTimeline } from "@/components/page/FloatingTimeline";
 // import MouseTrail from "@/components/layout/MouseTrail";
 
 const geistSans = Geist({

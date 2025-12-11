@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Background from "@/components/layout/Background";
 import Particles from "@/components/layout/Particles";
 import { useMediaQuery } from "react-responsive";
 
