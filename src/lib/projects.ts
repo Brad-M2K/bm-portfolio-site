@@ -30,13 +30,7 @@ export const projects: ProjectsList = {
       summary:
         "MVP events app with admin create/list, auth, and add-to-calendar.",
       primary: ["Next.js", "TypeScript", "Tailwind", "Prisma", "Postgres"],
-      supporting: [
-        "Supabase Auth",
-        "Supabase (DB)",
-        "Zod",
-        "Shadcn UI",
-        "Vercel",
-      ],
+      supporting: ["Supabase (DB)", "Zod", "Shadcn UI", "Vercel"],
       features: [
         "Auth-protected admin: create events",
         "Add to Google Calendar from event detail",
@@ -91,7 +85,7 @@ export const projects: ProjectsList = {
         "Deployed on Render with PostgreSQL hosted on Supabase",
       ],
       image: {
-        desktop: "/projects/events-thumb.png",
+        desktop: "/nc-news-api-desktop.png",
         mobile: "/projects/events-thumb-mobile.png",
       },
       liveUrl: "https://nc-news-api-b3sf.onrender.com",
@@ -114,7 +108,7 @@ export const projects: ProjectsList = {
         "Connected to custom NC News REST API for live data",
       ],
       image: {
-        desktop: "/projects/events-thumb.png",
+        desktop: "/nc-news-frontend-desktop.png",
         mobile: "/projects/events-thumb-mobile.png",
       },
       liveUrl: "https://nc-news-fe-wmuy.onrender.com",

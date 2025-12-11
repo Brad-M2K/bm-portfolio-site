@@ -1,3 +1,5 @@
+"use client";
+
 import FrontEndTech from "@/components/skills/FrontEndTech";
 import BackEndTech from "@/components/skills/BackEndTech";
 import DevToolsTech from "@/components/skills/DevToolsTech";
@@ -16,7 +18,7 @@ export const Skills = () => {
       <Accordion
         type="single"
         collapsible
-        className=" w-full  rounded-3xl border  border-white/30 bg-gradient-to-b from-black/30 via-fuchsia-500/20 to-sky-500/20 md:px-8 md:py-8 px-4 py-8 max-w-90 md:max-w-5xl "
+        className=" w-[95%]  rounded-4xl border  border-white/30 bg-gradient-to-b from-black/30 via-fuchsia-500/20 to-sky-500/20 md:px-8 md:py-8 px-4 py-8 max-w-90 md:max-w-5xl "
       >
         <h1 className="md:text-6xl text-4xl font-bold  text-shadow-3xs text-center pb-8 ">
           My <span className="glow">Evolving Skillset</span>
